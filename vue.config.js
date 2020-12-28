@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/',
-  outputDir: 'dist',
+  outputDir: 'docs',
   devServer: {
     proxy: 'https://jsonplaceholder.typicode.com/',
     // proxy: 'http://localhost:8080/',
