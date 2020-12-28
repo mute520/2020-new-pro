@@ -1,22 +1,28 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/',
+  publicPath: '/',
+  assetsDir: 'static',
   outputDir: 'docs',
   devServer: {
-    proxy: 'https://jsonplaceholder.typicode.com/',
+    disableHostCheck: true,
+    // host: '127.0.0.1',
+    // post: '8888',
+    // open: false,
+    // proxy: 'https://jsonplaceholder.typicode.com/',
     // proxy: 'http://localhost:8080/',
-    // proxy: {
-    //   '/api': {
-    //     target:'http://jsonplaceholder.typicode.com',
-    //     changeOrigin:true,
-    //     pathRewrite:{
-    //       '/api': '/'
-    //     }
-    //   },
-    //   '/ms': {
-    //     target: 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
-    //     changeOrigin: true
-    //   }
-    // },
+    proxy: {
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api': '/'
+        }
+      },
+      '/ms': {
+        target: 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
+        changeOrigin: true
+      },
+    },
   }
 }
 

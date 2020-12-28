@@ -3,7 +3,7 @@ import qs from 'qs'
 import { Message } from 'element-ui'
 
 const instance = axios.create({
-  baseURL: '/',
+  baseURL: '/api',
   timeout: 30000
 })
 
