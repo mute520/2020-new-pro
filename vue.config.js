@@ -1,6 +1,6 @@
 module.exports = {
-  // publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/',
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '././2020-new-pro' : '/',
+  // publicPath: '/',
   assetsDir: 'static',
   outputDir: 'docs',
   devServer: {
