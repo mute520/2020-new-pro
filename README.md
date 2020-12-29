@@ -27,3 +27,6 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### GitHub Pages
+ Your site is published at https://mute520.github.io/2020-new-pro/
