@@ -27,6 +27,11 @@ const router = new VueRouter({
       component: () => import('@/view/LazyLoad')
     },
     {
+      name: 'svg',
+      path: '/svg',
+      component: () => import('@/view/Svg')
+    },
+    {
       name: 'redirect',
       path: '*',
       redirect: '/home'

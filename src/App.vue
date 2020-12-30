@@ -6,6 +6,7 @@
       <router-link to="/play8002">Play</router-link>
       <router-link to="/directive">directive</router-link>
       <router-link to="/lazyLoad">lazyLoad</router-link>
+      <router-link to="/svg">SVG</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -13,8 +14,12 @@
 
 <style>
 /* @import url('https://fonts.googleapis.com/css2?family=Langar&family=Ma+Shan+Zheng&display=swap'); */
-body {
+html,
+body,
+#app {
   margin: 0;
+  width: 100%;
+  height: 100%;
   /* font-family: 'Langar', cursive; */
   /* font-family: 'Ma Shan Zheng'; */
 }
