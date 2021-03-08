@@ -3,13 +3,18 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './global.less'
 import './directives/directives'
 import './mock'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import Vue2OrgTree from 'vue2-org-tree'
+import 'vue2-org-tree/dist/style.css'
+
 
 Vue.config.productionTip = false
 
+Vue.use(Vue2OrgTree)
 Vue.use(ElementUI)
 
 new Vue({

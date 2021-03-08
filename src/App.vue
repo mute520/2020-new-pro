@@ -1,16 +1,31 @@
 <template>
   <div id="app">
     <div class="nav">
-      <router-link to="/home">Home</router-link>
-      <router-link to="/play8001">Play</router-link>
-      <router-link to="/play8002">Play</router-link>
-      <router-link to="/directive">directive</router-link>
-      <router-link to="/lazyLoad">lazyLoad</router-link>
-      <router-link to="/svg">SVG</router-link>
+      <router-link v-for="item in navList" :to="item.path" :key="item.path">{{item.name}}</router-link>
     </div>
     <router-view></router-view>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      navList: [
+        { path: '/css', name: 'CSS' },
+        { path: '/home', name: 'Home' },
+        { path: '/play8001', name: 'play8001' },
+        { path: '/play8002', name: 'play8002' },
+        { path: '/directive', name: 'directive' },
+        { path: '/lazyLoad', name: 'lazyLoad' },
+        { path: '/svg', name: 'svg' },
+        { path: '/editor', name: 'editor' },
+      ]
+    }
+  },
+}
+</script>
 
 <style>
 /* @import url('https://fonts.googleapis.com/css2?family=Langar&family=Ma+Shan+Zheng&display=swap'); */

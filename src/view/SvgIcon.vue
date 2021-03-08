@@ -101,8 +101,9 @@ export default {
       if (this.timer) clearInterval(this.timer)
     },
 
-    mouseClick() {
+    mouseClick(e) {
       this.mouseStart = true
+      this.moveLine = { x: e.x, y: e.y - 100 / 2 }
     },
     mouseMove(e) {
       if (!this.mouseStart) return
@@ -118,7 +119,7 @@ export default {
       this.moveLine = item
     },
     labelMouseleave(item) {
-      this.mouseStart = true
+      // this.mouseStart = true
     },
   },
 }

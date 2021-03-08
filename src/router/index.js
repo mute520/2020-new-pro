@@ -29,7 +29,17 @@ const router = new VueRouter({
     {
       name: 'svg',
       path: '/svg',
-      component: () => import('@/view/Svg')
+      component: () => import('@/view/SvgIcon')
+    },
+    {
+      name: 'css',
+      path: '/css',
+      component: () => import('@/view/CSS')
+    },
+    {
+      name: 'editor',
+      path: '/editor',
+      component: () => import('@/view/Editor')
     },
     {
       name: 'redirect',

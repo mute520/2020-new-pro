@@ -52,7 +52,7 @@ export default {
       const ele = document.querySelector('.box')
       const size = this.adjustFontSize(value, ele.offsetWidth, '14px')
       ele.style.fontSize = size + 'px'
-      console.log('size: ', size)
+      console.log('size: ', size) 
     }
   },
   
