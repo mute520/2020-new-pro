@@ -11,12 +11,16 @@ export default {
   name: 'tinymce-editor',
   model: {
     prop: 'content',
-    event: 'change'
+    event: 'change' 
   },
   props: {
     content: {
       type: String,
       default: ''
+    },
+    height: {
+      type: [Number, String],
+      default: 200
     },
   },
   data () {
@@ -27,19 +31,17 @@ export default {
   mounted () {
     this.init()
     console.log('tinymce', tinymce)
-    // document.addEventListener('keypress', this.keypressTab)
   },
   beforeDestroy() {
     tinymce && tinymce.remove()
-    // this.$el.querySelector('#tox-edit-area').removeEventListener('keypress', this.keypressTab)
   },
   methods: {
     init() {
-      tinymce.baseURL = './tinymac' // 这一句代码是重点 不写会报错theme.js:1 Uncaught SyntaxError: Unexpected token <
+      tinymce.baseURL = './tinymce' // 这一句代码是重点 不写会报错theme.js:1 Uncaught SyntaxError: Unexpected token <
       tinymce.init({
         selector: '#mytextarea',
-        plugins: 'lists,advlist,code', // 插件
-        toolbar: 'bold underline italic | bullist numlist | forecolor backcolor fontselect fontsizeselect | removeformat undo redo | code customInsertButton',
+        plugins: 'lists,advlist,code,image,table', // 插件
+        toolbar: 'bold underline italic | bullist numlist | forecolor backcolor fontselect fontsizeselect | image table | removeformat undo redo | code customInsertButton',
         advlist_bullet_styles: 'square',
         advlist_number_styles: 'lower-alpha',
         fontsize_formats: '12px 14px 16px 18px 24px 36px 48px',
@@ -49,6 +51,7 @@ export default {
         statusbar: false, // 状态栏指的是编辑器最底下、左侧显示dom信息、右侧显示Tiny版权链接和调整大小的那一条
         // skin: 'oxide-dark', // 主题
         // height: '100%',
+        height: this.height,
         resize: false, // 可选值为：true（仅允许改变高度）, false（完全不让你动）, 'both'（宽高都能改变，注意引号）
         // content_css : '/mycontent.css', // content_css该参数可允许你自定义TinyMCE编辑区域内的样式
         forced_root_block: 'div',
@@ -69,6 +72,10 @@ export default {
             this.$emit('change', value)
           })
           editor.on('keydown', e => this.keypressTab(e, editor))
+        },
+        images_upload_handler: (blobInfo, success, failure) => {
+          const img = 'data:image/jpeg;base64,' + blobInfo.base64()
+          success(img)
         },
         setup: (editor) => {
           // editor.ui.registry.addIcon('triangleUp', '<svg height="24" width="24"><path d="M12 0 L24 24 L0 24 Z" /></svg>' ) // 自定义图标
@@ -91,6 +98,11 @@ export default {
         if (editor) {
           editor.insertContent('&nbsp;&nbsp;&nbsp;&nbsp;')
         }
+      }
+      if(e.keyCode === 13 || e.key === 'Enter') {
+        // 获取富文本编辑器里面的内容
+        const value = editor.getContent()
+        this.$emit('change', value)
       }
     },
   },

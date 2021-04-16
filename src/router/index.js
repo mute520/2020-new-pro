@@ -42,9 +42,14 @@ const router = new VueRouter({
       component: () => import('@/view/Editor')
     },
     {
+      name: 'work',
+      path: '/work',
+      component: () => import('@/view/Work')
+    },
+    {
       name: 'redirect',
       path: '*',
-      redirect: '/home'
+      redirect: '/work'
     }
   ]
 })

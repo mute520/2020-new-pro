@@ -15,6 +15,11 @@
 
     <TinyEditor v-model="content" @change="change3" />
     <p>输出content：{{content}}</p>
+    <div class="ppc">
+      <ul>
+        <li v-for="d in 10" :key="d"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -118,7 +123,29 @@ export default {
   },
 }
 </script>
-
+<style lang="less">
+  .ppc {
+    width: 300px;
+    height: 100px;
+    border: 1px solid;
+    overflow: auto;
+    display: flex;
+    ul {
+      flex-shrink: 0;
+      display: inline-flex;
+      list-style: none;
+      margin: 0;
+      border: 1px solid red;
+      li {
+        flex-shrink: 0;
+        width: 100px;
+        height: 50px;
+        background: #ff0;
+        margin: 10px;
+      }
+    }
+  }
+</style>
 <style lang='less' >
 .editor {
   line-height: normal !important;

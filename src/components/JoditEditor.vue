@@ -13,6 +13,10 @@ import 'jodit/build/jodit.es2018.css'
 
 export default {
   name: 'joditEditor',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     value: {
       type: String,
@@ -20,7 +24,7 @@ export default {
     },
     buttons: {
       type: Array,
-      default: () => ['source', '|', 'bold', 'underline', 'italic', '|', 'font', 'fontsize', 'brush', '|', 'ul', 'ol', '|', 'undo', 'redo', 'eraser']
+      default: () => ['source', '|', 'bold', 'underline', 'italic', '|', 'font', 'fontsize', 'brush', '|', 'ul', 'ol', '|', 'table', 'undo', 'redo', 'eraser']
     },
     extraButtons: {
       type: Array,
@@ -81,7 +85,7 @@ export default {
   },
   mounted() {
     this.init()
-    this.$el.addEventListener('keydown', this.keydownTab)
+    // this.$el.addEventListener('keydown', this.keydownTab)
   },
   methods: {
     init() {

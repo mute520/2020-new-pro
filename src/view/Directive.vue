@@ -11,6 +11,7 @@
     <div v-dragcc style="left: 400px"></div>
     <el-input v-model="value" @input="changeValue" size="mini"></el-input>
     <div class="box">{{value}}</div>
+    <input type="file" @change="change">
   </div>
 </template>
 
@@ -53,7 +54,50 @@ export default {
       const size = this.adjustFontSize(value, ele.offsetWidth, '14px')
       ele.style.fontSize = size + 'px'
       console.log('size: ', size) 
-    }
+    },
+    //上传图片信息保存在数组中并且回显
+    change(event) {
+      let file = event.target.files[0];
+      let windowURL = window.URL || window.webkitURL;
+      //图片格式为PNG或JPG且小于5M
+      if (/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/.test(file.name) && file.size < 5000000 ) {
+        if (file) {
+          let dataURl = windowURL.createObjectURL(file);
+          file.url = dataURl;
+          // this.multipartFile.push(file);
+          this.url = dataURl;
+          this.getImgBase64(dataURl);
+        }
+      } else {
+        Toast({
+          message: "银行印鉴卡格式为PNG或JPG且小于5M",
+          position: "middle",
+          duration: 1500,
+        });
+      }
+    },
+    image2Base64(img) {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      var dataURL = canvas.toDataURL("image/jpg");
+      return dataURL;
+    },
+    getImgBase64(src) {
+      var base64 = "";
+      var img = new Image();
+      img.src = src;
+      let that =this
+      img.onload = function () {
+          base64 = that.image2Base64(img);
+          console.log(base64);
+          var el = document.createElement('img')
+          el.src = base64
+          document.body.appendChild(el)
+      };
+    },
   },
   
 }

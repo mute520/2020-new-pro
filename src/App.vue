@@ -21,6 +21,7 @@ export default {
         { path: '/lazyLoad', name: 'lazyLoad' },
         { path: '/svg', name: 'svg' },
         { path: '/editor', name: 'editor' },
+        { path: '/work', name: 'work' },
       ]
     }
   },
