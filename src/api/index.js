@@ -31,3 +31,8 @@ export const deleteAlbums = (data) => request({url: '/albums', method: 'delete',
 export const deletePhotos = (data) => request({url: '/photos', method: 'delete', data})
 export const deleteTodos = (data) => request({url: '/todos', method: 'delete', data})
 export const deleteUsers = (data) => request({url: '/users', method: 'delete', data})
+export const youdao = (data) => request({
+  url: 'http://fanyi.youdao.com/openapi.do?keyfrom=Skykai521&key=977124034&type=data&doctype=jsonp&version=1.1',
+  method: 'post',
+  data
+})

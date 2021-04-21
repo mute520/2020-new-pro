@@ -57,7 +57,7 @@
     </el-dialog>
     <div class="light-box">
       <div class="light1">Neon Button <span></span></div>
-      <div class="light" v-for="n in 5" :key="n">
+      <div class="light" v-for="n in 5" :class="['light'+n]" :key="n">
         <div></div>
         <div></div>
         <div></div>
@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import { youdao } from '@/api'
 
 export default {
   name: 'abc',
@@ -88,6 +89,11 @@ export default {
         {name: '高管领导', checkAll: false, isIndeterminate: false, checkedPerson: [], personList: ['王玉珍(wangyuzhen396)3', '肖惠康(xiaohuikang802)3', '梁丽青(liangliqing)3']},
       ],
     }
+  },
+  mounted() {
+    youdao({}).then(res => {
+      
+    })
   },
   methods: {
     radioChange(value) {
@@ -349,6 +355,11 @@ export default {
   cursor: pointer;
   overflow: hidden;
   // animation: rotate .1s linear infinite;
+}
+.light5 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 .light:hover {
   // background-color: #03e9f4;
