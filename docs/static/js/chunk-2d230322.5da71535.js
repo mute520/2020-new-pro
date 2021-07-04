@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d230322"],{eaf6:function(e,n,o){var s,t;s=[o("ba9e")],t=function(e,n){"use strict";return console.log("define"),{title:"base",content:"我是 base.js 的返回值",id:"007"}}.apply(n,s),void 0===t||(e.exports=t)}}]);
-//# sourceMappingURL=chunk-2d230322.5da71535.js.map

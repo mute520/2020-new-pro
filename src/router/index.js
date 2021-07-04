@@ -14,7 +14,9 @@ const router = new VueRouter({
     {
       name: 'play',
       path: '/play:product',
+      path: '/play:product',
       component: () => import('@/view/Play')
+      // component: () => import('@/view/Play_bk')
     },
     {
       name: 'directive',
@@ -45,6 +47,16 @@ const router = new VueRouter({
       name: 'work',
       path: '/work',
       component: () => import('@/view/Work')
+    },
+    {
+      name: 'student',
+      path: '/student',
+      component: () => import('@/view/Student')
+    },
+    {
+      name: 'infinity',
+      path: '/infinity',
+      component: () => import('@/view/Infinity')
     },
     {
       name: 'redirect',

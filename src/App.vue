@@ -22,6 +22,8 @@ export default {
         { path: '/svg', name: 'svg' },
         { path: '/editor', name: 'editor' },
         { path: '/work', name: 'work' },
+        { path: '/student', name: 'student' },
+        { path: '/infinity', name: 'infinity' },
       ]
     }
   },

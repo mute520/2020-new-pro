@@ -48,11 +48,11 @@ export default {
         font_formats: '微软雅黑=Microsoft YaHei;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Comic Sans MS=comic sans ms,sans-serif;Times New Roman=times new roman,times;',
         // toolbar: false, // 隐藏工具栏
         menubar: false, // 隐藏菜单栏
-        statusbar: false, // 状态栏指的是编辑器最底下、左侧显示dom信息、右侧显示Tiny版权链接和调整大小的那一条
+        statusbar: true, // 状态栏指的是编辑器最底下、左侧显示dom信息、右侧显示Tiny版权链接和调整大小的那一条
         // skin: 'oxide-dark', // 主题
         // height: '100%',
         height: this.height,
-        resize: false, // 可选值为：true（仅允许改变高度）, false（完全不让你动）, 'both'（宽高都能改变，注意引号）
+        resize: true, // 可选值为：true（仅允许改变高度）, false（完全不让你动）, 'both'（宽高都能改变，注意引号）
         // content_css : '/mycontent.css', // content_css该参数可允许你自定义TinyMCE编辑区域内的样式
         forced_root_block: 'div',
         language:'zh_CN',

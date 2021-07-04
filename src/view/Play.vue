@@ -66,7 +66,7 @@
             :data="data"
             :horizontal="horizontal"
           />
-          <!-- <vue2-org-tree
+          <vue2-org-tree
             name="test"
             :data="data"
             :horizontal="horizontal"
@@ -75,12 +75,13 @@
             :render-content="renderContent"
             @on-expand="onExpand"
             @on-node-click="onNodeClick"
-          /> -->
+          />
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import Editor from '@/components/editor'
 
@@ -377,7 +378,12 @@ export default {
   }
 };
 </script>
-<style type="text/css">
+<style lang="less">
+.org-tree-node {
+  &:only-child:before {
+    top: 0 !important; // 解决只有一个字节点时，连接线凹凸问题
+  }
+}
 .org-tree-node-label {
   white-space: nowrap;
 }

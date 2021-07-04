@@ -36,3 +36,40 @@ export const youdao = (data) => request({
   method: 'post',
   data
 })
+export const deleteById = (data) => request({
+  // url: 'http://localhost:80/web/demo2/score_delete.php',
+  url: '/web/demo2/score_delete.php',
+  method: 'post',
+  data,
+  qs: true
+})
+export const getStudentInfo = data => request({
+  url: '/web/student/list.php',
+  method: 'get',
+  data,
+  qs: true
+})
+export const addStudentInfo = data => request({
+  url: '/web/student/add.php',
+  method: 'post',
+  data,
+  qs: true
+})
+export const deleteStudentInfo = data => request({
+  url: '/web/student/delete.php',
+  method: 'post',
+  data,
+  qs: true
+})
+export const udpateStudentInfo = data => request({
+  url: '/web/student/update.php',
+  method: 'post',
+  data,
+  qs: true
+})
+export const createStudents = data => request({
+  url: '/web/student/createStudents.php',
+  method: 'post',
+  data,
+  qs: true
+})

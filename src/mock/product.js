@@ -3,7 +3,7 @@ import Mock from 'mockjs'
 const { mock, Random } = Mock
 
 export default function (data) {
-  // console.log('data:', data)
+  console.log('mock data:', data)
   let list = []
   for (let i = 0; i < 10; i++) {
     list.push({

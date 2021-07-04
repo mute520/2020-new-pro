@@ -1,6 +1,10 @@
 <template>
   <div class="wrap">
-    <el-button @click="visible = true">上传</el-button>
+    <el-button @click="visible = true" size="mini">上传</el-button>
+    <div class="students">
+      <el-input v-model="deleteId" size="mini"></el-input>
+      <el-button @click="deleteStudentById" size="mini">删除</el-button>
+    </div>
     <div class="hover-poper">hover
       <transition>
         <div class="hover-box">
@@ -65,11 +69,22 @@
         Neon cButton
       </div>
     </div>
+    <div class="flex">
+      <div class="left"></div>
+      <div class="right">
+        <ul>
+          <!-- <li><img :src="require('@/assets/images/svgs/star.svg')" alt=""></li> -->
+          <li>aaa</li>
+          <li>aaa</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { youdao } from '@/api'
+import { youdao, deleteById, productGet } from '@/api'
+import '@/assets/images/svgs/star.svg'
 
 export default {
   name: 'abc',
@@ -88,14 +103,22 @@ export default {
         {name: '高管助理2', checkAll: false, isIndeterminate: false, checkedPerson: [], personList: ['王玉珍(wangyuzhen396)2', '肖惠康(xiaohuikang802)2', '梁丽青(liangliqing)2']},
         {name: '高管领导', checkAll: false, isIndeterminate: false, checkedPerson: [], personList: ['王玉珍(wangyuzhen396)3', '肖惠康(xiaohuikang802)3', '梁丽青(liangliqing)3']},
       ],
+      deleteId: '17',
     }
   },
   mounted() {
-    youdao({}).then(res => {
-      
-    })
+    // productGet({}).then(res => {})
   },
   methods: {
+    deleteStudentById() {
+      if (!this.deleteId) {
+        this.$message.error('请输入要删除的学生学号')
+        return
+      }
+      deleteById({ id: this.deleteId }).then(res => {
+        console.log('deleteById res', res)
+      })
+    },
     radioChange(value) {
       console.log('value：', value)
     },
@@ -177,6 +200,29 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.flex {
+  border: 1px solid blue;
+  width: 600px;
+  height: 200px;
+  display: flex;
+  color: #fff;
+  .left {
+    border: 1px solid red;
+    width: 200px;
+    flex-shrink: 0;
+  }
+  .right {
+    width: calc(100% - 200px);
+    border: 1px solid #ff0;
+    ul {
+      margin-left: 30px;
+      li {
+        list-style-type: disc;
+        list-style-image: url('~@/assets/images/svgs/star.svg');
+      }
+    }
+  }
+}
 .hover-poper {
   cursor: pointer;
   position: relative;
@@ -453,5 +499,11 @@ export default {
 //     transform: rotate(360deg);
 //   }
 // }
+
+.students {
+  display: flex;
+  width: 200px;
+  margin: 10px;
+}
 
 </style>
